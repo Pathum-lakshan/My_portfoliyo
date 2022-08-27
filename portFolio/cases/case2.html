@@ -8,6 +8,157 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    header {
+      background: white;
+      box-shadow: 0px -1px 8px 2px #1c1717e8;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      height: 73px;
+      z-index: 2;
+    }
+
+    header > img {
+      width: 190px;
+      position: relative;
+      top: 20px;
+      left: 10px;
+    }
+
+    header > nav {
+      position: absolute;
+      right: 40px;
+      top: 0;
+    }
+
+    header > nav > ul > li {
+      display: inline-block;
+      cursor: pointer;
+      padding: 10px;
+      font-family: 'Poppins', sans-serif;
+      color: rgba(46, 41, 41, 0.96);
+      font-size: 19px;
+      border-right: 2px solid rgba(46, 41, 41, 0.58);
+
+    }
+
+    header > nav > ul > li:first-child {
+      border-left: 2px solid rgba(46, 41, 41, 0.58);
+    }
+
+    main ul > li:hover a {
+      color: deeppink;
+    }
+
+    main ul > li:hover i {
+      color: #ff9500;
+    }
+
+    header ul > li:hover a {
+      color: rgba(228, 12, 12, 0.89);
+    }
+
+    header ul > li:hover i {
+      color: #c21e1e;
+    }
+
+    main {
+      position: relative;
+      margin-top: 73px;
+    }
+
+    main > nav {
+      position: absolute;
+      background: #24327f;
+      top: 0;
+      bottom: 0;
+      width: 270px;
+    }
+
+    main > nav > ul > li {
+      color: white;
+      list-style: none;
+      padding-top: 40px;
+      font-size: 19px;
+      cursor: pointer;
+
+    }
+
+    header ul > li > i {
+      padding-right: 6px;
+    }
+
+    header ul > li > a {
+      color: rgba(46, 41, 41, 0.96);
+      text-decoration: none;
+    }
+
+    main ul > li > i {
+      padding-right: 15px;
+      font-size: 20px;
+      color: #ccffcd;
+    }
+
+    main ul > li > a {
+      color: #ccffcd;
+      text-decoration: none;
+    }
+
+    main > section {
+      margin-left: 270px;
+      padding: 10px;
+    }
+
+    main > section p {
+      color: #433636f5;
+    }
+
+    footer {
+      height: 60px;
+      background: #363030;
+    }
+
+    footer > h4 {
+      text-align: center;
+      margin-top: 0;
+      padding-top: 20px;
+      color: #e5e5e5;
+      font-weight: lighter;
+    }
+
+    main > section > section:first-child {
+      height: 300px;
+      position: relative;
+    }
+
+    main > section > section:first-child > div {
+      height: 100%;
+      width: calc(100% / 3);
+      position: absolute;
+      border: 1px solid rgba(0, 0, 0, 0.33);
+    }
+
+    main > section > section:first-child > div:nth-child(1) {
+      background: url("images/case1gifimage.gif");
+      left: 0;
+    }
+
+    main > section > section:first-child > div:nth-child(2) {
+      background: url("images/case1gifimage.gif");
+      left: calc(100%/3);
+    }
+
+    main > section > section:first-child > div:nth-child(3) {
+      background: url("images/case1gifimage.gif");
+      right: 0;
+    }
+
+  </style>
 
 </head>
 <body>
