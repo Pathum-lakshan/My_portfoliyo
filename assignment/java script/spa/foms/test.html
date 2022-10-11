@@ -17,6 +17,7 @@
   <link href="../assert/css/material-dashboard.css?v=3.0.4" id="pagestyle" rel="stylesheet"/>
 </head>
 <body>
+<<<<<<< HEAD
 <template>
   <div>
     <label >Spin Button</label>
@@ -32,6 +33,26 @@
       }
     }
   }
+=======
+<select class="form-select" aria-label="Default select example">
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
+<script>
+  const basicAutocomplete = document.querySelector('#search-autocomplete');
+  const data = ['One', 'Two', 'Three', 'Four', 'Five'];
+  const dataFilter = (value) => {
+    return data.filter((item) => {
+      return item.toLowerCase().startsWith(value.toLowerCase());
+    });
+  };
+
+  new mdb.Autocomplete(basicAutocomplete, {
+    filter: dataFilter
+  });
+>>>>>>> origin/main
 </script>
 </body>
 <script src="../assert/vendors/js/vendor.bundle.base.js"></script>

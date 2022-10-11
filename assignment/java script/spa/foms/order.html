@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> S P A </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <link href="../assert/vendors/mdi/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="../assert/vendors/css/vendor.bundle.base.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="../assert/css/demo/style.css" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" rel="stylesheet"
           type="text/css"/>
     <link href="../assert/css/nucleo-svg.css" rel="stylesheet"/>
@@ -13,136 +17,91 @@
     <link href="../assert/css/material-dashboard.css?v=3.0.4" id="pagestyle" rel="stylesheet"/>
 </head>
 <body>
-<main class="main-content border-radius-lg mt-7">
-
-    <section class="d-flex flex-row mb-3">
-        <div class="flex-fill p-3">
-            <div class="card  mb-2">
-                <div class="card-header p-3 pt-2">
-                    <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
-                        <i class="material-icons opacity-10">assignment</i>
-                    </div>
-                    <div class="text-end pt-1">
-                        <div class="d-flex flex-row">
-                            <div class="flex-fill p-2">
-                                <h5 class="mb-0">Create Order</h5>
-                            </div>
-                            <div class="flex-fill p-2">
-                                <div class="d-flex flex-row">
-                                    <div class="flex-fill ">
-                                        <h5 class="mb-0"></h5>
-                                    </div>
-                                    <div class="flex-fill ">
-                                        <h5 class="mb-0"></h5>
-
-                                    </div>
-                                    <div class="flex-fill ">
-                                        <h5 class="mb-0"></h5>
-
-                                    </div>
-                                    <div class="flex-fill ">
-                                        <h5 class="mb-0"> Next Order ID - </h5>
-
-                                    </div>
-                                    <div class="flex-fill ">
-                                        <h5 class="mb-0">SA/2/65</h5>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <hr class="dark horizontal my-0">
-                <div class="card-footer p-3">
+<main class="main-content border-radius-lg mt-7 ">
+    <div class="d-flex flex-row">
+        <div class="flex-fill p-2">
+            <div class="card mt-4">
+                <div class="card-header p-3">
                     <div class="d-flex flex-row">
                         <div class="flex-fill p-2">
-                            <div class="card-body p-3 pb-0">
-                                <form>
-                                    <div class="form-group p-3">
-                                        <label for="formGroupExampleInput">Example label</label>
-                                        <select aria-label="Default select example"
-                                                class="form-select bg-gray-400 text-center ">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group p-3">
-                                        <label for="formGroupExampleInput2">Another label</label>
-                                        <input class="form-control bg-gray-400 text-center" id="formGroupExampleInput2"
-                                               placeholder="Another input"
-                                               type="text">
-                                    </div>
-                                </form>
-                            </div>
-
+                            <h5 class="mb-0">Create Order</h5>
                         </div>
                         <div class="flex-fill p-2">
-                            <div class="card-body p-3 pb-0">
-                                <form>
-                                    <div class="form-group p-3">
-                                        <label for="formGroupExampleInput">Example label</label>
-                                        <select aria-label="Default select example"
-                                                class="form-select text-center bg-gray-400 ">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group p-3">
-                                        <label for="formGroupExampleInput">Example label</label>
-                                        <input class="form-control text-center bg-gray-400" id="formGroupExampleInput"
-                                               placeholder="    Example input"
-                                               type="text">
-                                    </div>
-                                </form>
+                            <div class="d-flex flex-row">
+                                <div class="flex-fill ">
+                                    <h5 class="mb-0"></h5>
+                                </div>
+                                <div class="flex-fill ">
+                                    <h5 class="mb-0"></h5>
 
+                                </div>
+                                <div class="flex-fill ">
+                                    <h5 class="mb-0"></h5>
+
+                                </div>
+                                <div class="flex-fill ">
+                                    <h5 class="mb-0"> Next Order ID - </h5>
+
+                                </div>
+                                <div class="flex-fill ">
+                                    <h5 class="mb-0">SA/2/65</h5>
+
+                                </div>
                             </div>
 
                         </div>
                     </div>
+                </div>
+                <div class="d-flex flex-row">
+                    <div class="flex-fill p-2">
+                        <div class="card-body p-3 pb-0">
+                            <form>
+                                <div class="form-group p-3">
+                                    <label for="formGroupExampleInput">Example label</label>
+                                    <input class="form-control bg-gray-400" id="formGroupExampleInput" placeholder="    Example input"
+                                           type="text">
+                                </div>
+                                <div class="form-group p-3">
+                                    <label for="formGroupExampleInput2">Another label</label>
+                                    <input class="form-control" id="formGroupExampleInput2" placeholder="Another input"
+                                           type="text">
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="flex-fill p-2">
+                        <div class="card-body p-3 pb-0">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-fill p-2">
+            <div class="card mt-4">
+                <div class="card-header p-3">
+                    <h5 class="mb-0">Notification messages</h5>
+                </div>
+                <div class="card-body p-3 pb-0">
 
                 </div>
             </div>
 
         </div>
-        <div class="flex-fill p-3 ">
-            <div class="card  mb-2">
-                <div class="card-header p-3 pt-2 bg-transparent">
-                    <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                        <i class="material-icons opacity-10">store</i>
-                    </div>
-                    <div class="text-end pt-1">
-                        <h5 class="mb-0">Notification messages</h5>
-
-                    </div>
-                </div>
-
-                <hr class="horizontal my-0 dark">
-                <div class="card-footer p-3">
-
-
-                </div>
-            </div>
-
-        </div>
-
-    </section>
+    </div>
 </main>
 
 </body>
-<script src="../assert/js/order.js"></script>
+<script src="../assert/vendors/js/vendor.bundle.base.js"></script>
+<script src="../assert/js/material.js"></script>
+<script src="../assert/js/misc.js"></script>
 <script crossorigin="anonymous" src="https://kit.fontawesome.com/42d5adcbca.js"></script>
 <script src="../assert/js/core/popper.min.js"></script>
 <script src="../assert/js/core/bootstrap.min.js"></script>
 <script src="../assert/js/plugins/perfect-scrollbar.min.js"></script>
 <script src="../assert/js/plugins/smooth-scrollbar.min.js"></script>
-<script src="../assert/js/dashboard.js"></script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="../assert/js/material-dashboard.min.js?v=3.0.4"></script>
 </html>
