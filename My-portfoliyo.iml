@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="42d5adcbca" level="application" />
     <orderEntry type="library" name="buttons" level="application" />
+    <orderEntry type="library" name="bootstrap-3-typeahead" level="application" />
   </component>
 </module>

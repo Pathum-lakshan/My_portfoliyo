@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="../assert/vendors/mdi/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="../assert/vendors/css/vendor.bundle.base.css" rel="stylesheet">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <link href="../assert/css/demo/style.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" rel="stylesheet"
+        type="text/css"/>
+  <link href="../assert/css/nucleo-svg.css" rel="stylesheet"/>
+  <link href="../assert/css/nucleo-svg.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link href="../assert/css/material-dashboard.css?v=3.0.4" id="pagestyle" rel="stylesheet"/>
+</head>
+<body>
+<template>
+  <div>
+    <label >Spin Button</label>
+    <b-form-spinbutton id="demo-sb" v-model="value" min="1" max="100"></b-form-spinbutton>
+    <p>Value: {{ value }}</p>
+  </div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        value: 50
+      }
+    }
+  }
+</script>
+</body>
+<script src="../assert/vendors/js/vendor.bundle.base.js"></script>
+<script src="../assert/js/material.js"></script>
+<script src="../assert/js/order.js"></script>
+<script src="../assert/js/misc.js"></script>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/42d5adcbca.js"></script>
+<script src="../assert/js/core/popper.min.js"></script>
+<script src="../assert/js/core/bootstrap.min.js"></script>
+<script src="../assert/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="../assert/js/plugins/smooth-scrollbar.min.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="../assert/js/material-dashboard.min.js?v=3.0.4"></script>
+</html>
