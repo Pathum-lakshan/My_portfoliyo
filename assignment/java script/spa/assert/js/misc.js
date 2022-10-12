@@ -26,7 +26,7 @@
       var $this = $(this);
       if (current === "") {
         //for root url
-        if ($this.attr('href').indexOf("index.html") !== -1) {
+        if ($this.attr('href').indexOf("my-portfolio.html") !== -1) {
           $(this).addClass('active');
           if ($(this).parents('.mdc-expansion-panel').length) {
             $(this).closest('.mdc-expansion-panel').addClass('expanded');

@@ -344,4 +344,9 @@ $('#product_btn_dashboard').click(function () {
 
 })
 
+$('#customer_btn_dashboard').click(function () {
+    $('#dashboard_working_space').load('customer.html');
+
+})
+
 

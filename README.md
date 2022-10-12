@@ -1,2 +1,0 @@
-# -My-portfoliyo
-internet technology 
