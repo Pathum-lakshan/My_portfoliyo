@@ -333,11 +333,14 @@
 })(jQuery);
 $('#order_btn_dashboard').click(function () {
     $('#dashboard_working_space').load('order.html');
-
 })
 
 $('#dashboard_btn_dashboard').click(function () {
     $('#dashboard_working_space').load('dashboard_content.html');
+
+})
+$('#product_btn_dashboard').click(function () {
+    $('#dashboard_working_space').load('item.html');
 
 })
 
