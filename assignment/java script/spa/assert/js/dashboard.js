@@ -336,7 +336,6 @@ $('#order_btn_dashboard').click(function () {
     document.getElementById("product").style.display = "none";
     document.getElementById("customer").style.display = "none";
     document.getElementById("order").style.display = "block";
-
 });
 $('#dashboard_btn_dashboard').click(function () {
     document.getElementById("dashboard").style.display = "block";
@@ -361,11 +360,17 @@ const products = [];
 const orders = [];
 const cart = [];
 $("#add_product_btn").click(function (event) {
-    productSave($('#next_product_id').text(), $('#product_name').val(), $('#product_category').val(), $('#product_qty').val(), $('#product_price').val())
+    productSave($('#next_product_id').text(), $('#product_name').val(), $('#product_category').val(), $('#product_qty').val(), $('#product_price').val());
+    clearProduct();
 });
 
-function clear() {
-    $('#next_customer_id').cle
+function clearProduct() {
+    $('#product_name').val('');
+    $('#product_category').val('');
+    $('#product_qty').val('');
+    $('#product_price').val('');
+    let last = products[products.length - 1].id;
+    $('#next_product_id').text(last.substring(0,last.length-1)+(parseInt(last.charAt(last.length - 1))+1));
 }
 
 $("#add_customer_btn").click(function (event) {
@@ -384,6 +389,7 @@ function productSave(id, name, category, qty, price) {
     }
     products.push(product);
     addProductTable();
+    loadAllProduct();
 }
 
 function customerSave(id, name, address, contact, idNumber) {
@@ -398,6 +404,7 @@ function customerSave(id, name, address, contact, idNumber) {
 
 
     addCustomerTable();
+    loadAllCustomers();
 }
 
 function addCustomerTable() {
@@ -416,21 +423,24 @@ function addProductTable() {
     }
 }
 
-function loadAllItemId() {
-    $('#itemIdOrd').empty();
-    for (let itemArElement of itemAr) {
-        $('#itemIdOrd').append(<option>${itemArElement.itemCode}</option>);
+function loadAllCustomers() {
+    $('#customers_selector').empty();
+    var selected =  " <option selected>"+"select customer" +"</option>";
+    $('#customers_selector').append(selected);
+    for (var customer of customers) {
+        var row =  " <option>"+customer.id+"  "+customer.name+"</option>";
+        $('#customers_selector').append(row);
+
     }
 }
 
-/*Listener fir the Customer Combo*/
-$('#customerIdOrd').on('change',function (){
-    /*get Customer*/
-    let customer = searchCustomer($('#customerIdOrd').val());
+function loadAllProduct() {
+    $('#product_selector').empty();
+    var selected =  " <option selected>"+"select product" +"</option>";
+    $('#product_selector').append(selected);
+    for (var product of products) {
+        var row =  " <option>"+product.id+"  "+product.name+"</option>";
+        $('#product_selector').append(row);
 
-    $('#customerNameOrd').val(customer.cusName);
-    $('#salaryOrd').val(customer.cusSalary);
-    $('#addressOrd').val(customer.cusAddress);
-
-
-});
+    }
+}
