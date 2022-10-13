@@ -332,21 +332,57 @@
     });
 })(jQuery);
 $('#order_btn_dashboard').click(function () {
-    $('#dashboard_working_space').load('order.html');
-})
+    document.getElementById("dashboard").style.display = "none";
+     document.getElementById("product").style.display = "none";
+     document.getElementById("customer").style.display = "none";
+    document.getElementById("order").style.display = "block";
 
+});
 $('#dashboard_btn_dashboard').click(function () {
-    $('#dashboard_working_space').load('dashboard_content.html');
-
-})
+    document.getElementById("dashboard").style.display = "block";
+    document.getElementById("product").style.display = "none";
+    document.getElementById("customer").style.display = "none";
+    document.getElementById("order").style.display = "none";
+});
 $('#product_btn_dashboard').click(function () {
-    $('#dashboard_working_space').load('item.html');
-
-})
-
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("product").style.display = "block";
+    document.getElementById("customer").style.display = "none";
+    document.getElementById("order").style.display = "none";
+});
 $('#customer_btn_dashboard').click(function () {
-    $('#dashboard_working_space').load('customer.html');
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("product").style.display = "none";
+    document.getElementById("customer").style.display = "block";
+    document.getElementById("order").style.display = "none";
+});
 
-})
+const customers = [];
+const products = [];
+const orders = [];
+const cary = [];
 
 
+$("#add_product_btn").click(function (event) {
+productSave($('#next_product_id').text(),$('#product_name').val(),$('#product_category').val(),$('#product_qty').val(),$('#product_price').val())
+});
+
+function productSave(id,name,category,qty,price) {
+    var product={
+        id:id,
+        name:name,
+        category:category,
+        qty:qty,
+        price:price
+    }
+    products.push(product);
+    addCustomerTable();
+}
+function addCustomerTable() {
+    $("#product_table tr").remove();
+
+    for (var product of products){
+        var row="<tr><td>"+product.id+"</td><td>"+product.name+"</td><td>"+product.category+"</td><td>"+product.qty+"</td><td>"+product.price+"</td></tr>";
+        $('#product_table').append(row);
+    }
+}
