@@ -331,6 +331,7 @@
 
     });
 })(jQuery);
+
 $('#order_btn_dashboard').click(function () {
     document.getElementById("dashboard").style.display = "none";
     document.getElementById("product").style.display = "none";
@@ -355,6 +356,8 @@ $('#customer_btn_dashboard').click(function () {
     document.getElementById("customer").style.display = "block";
     document.getElementById("order").style.display = "none";
 });
+
+
 const customers = [];
 const products = [];
 const orders = [];
@@ -370,14 +373,22 @@ function clearProduct() {
     $('#product_qty').val('');
     $('#product_price').val('');
     let last = products[products.length - 1].id;
-    $('#next_product_id').text(last.substring(0,last.length-1)+(parseInt(last.charAt(last.length - 1))+1));
+    $('#next_product_id').text(last.substring(0, last.length - 1) + (parseInt(last.charAt(last.length - 1)) + 1));
 }
 
 $("#add_customer_btn").click(function (event) {
     customerSave($('#next_customer_id').text(), $('#customer_name').val(), $('#customer_address').val(), $('#customer_contact').val(), $('#customer_id_number').val())
-   clear();
+    clearCustomer();
 });
 
+function clearCustomer() {
+    $('#customer_name').val('');
+    $('#customer_address').val('');
+    $('#customer_contact').val('');
+    $('#customer_id_number').val('');
+    let last = customers[customers.length - 1].id;
+    $('#next_customer_id').text(last.substring(0, last.length - 1) + (parseInt(last.charAt(last.length - 1)) + 1));
+}
 
 function productSave(id, name, category, qty, price) {
     var product = {
@@ -425,10 +436,10 @@ function addProductTable() {
 
 function loadAllCustomers() {
     $('#customers_selector').empty();
-    var selected =  " <option selected>"+"select customer" +"</option>";
+    var selected = " <option selected>" + "select customer" + "</option>";
     $('#customers_selector').append(selected);
     for (var customer of customers) {
-        var row =  " <option>"+customer.id+"  "+customer.name+"</option>";
+        var row = " <option>" + customer.id + "  " + customer.name + "</option>";
         $('#customers_selector').append(row);
 
     }
@@ -436,11 +447,31 @@ function loadAllCustomers() {
 
 function loadAllProduct() {
     $('#product_selector').empty();
-    var selected =  " <option selected>"+"select product" +"</option>";
+    var selected = " <option selected>" + "select product" + "</option>";
     $('#product_selector').append(selected);
     for (var product of products) {
-        var row =  " <option>"+product.id+"  "+product.name+"</option>";
+        var row = " <option>" + product.id + "  " + product.name + "</option>";
         $('#product_selector').append(row);
 
     }
+}
+
+$("#customers_selector").on('change',function (){
+    let customer = searchCustomer($('#customers_selector').val());
+    let address = customer.address;
+    $("#customer_address_order:text").val(String(address));
+   // $("#customer_contact_contact:text").val(""+customer.contact+"");
+    console.log(customer);
+});
+
+
+
+function searchCustomer(id) {
+    let customer;
+    customers.forEach(element => {
+        if (id==element.id){
+            customer=element;
+        }
+    });
+    return customer;
 }
