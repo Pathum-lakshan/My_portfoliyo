@@ -861,7 +861,7 @@
                                 <i class="material-icons opacity-10">payments</i>
                             </div>
                             <div class="text-end pt-1">
-                                <h5 class="mb-0"> Add Payment </h5>
+                                <h5 class="mb-0" id="total_amount"> Total Amount Rs. 00 </h5>
                             </div>
                         </div>
                         <hr class="horizontal my-0 dark">
@@ -872,7 +872,7 @@
                                     <h6 class="mb-0">Payment Method</h6>
                                 </div>
                                 <div class="col-6 text-end">
-                                    <a class="btn bg-gradient-dark mb-0 text-xxs" href="#"><i
+                                    <a class="btn bg-gradient-dark mb-0 text-xxs"  href="#"><i
                                             class="material-icons  text-sm">add</i>&nbsp;&nbsp;Add New Card</a>
                                 </div>
                             </div>
@@ -880,23 +880,23 @@
 
                             <div class="pt-3">
                                 <div class="form-check form-check-inline">
-                                    <input checked class="form-check-input" id="exampleRadios1" name="exampleRadios"
+                                    <input checked class="form-check-input" id="card_pay" name="exampleRadios"
                                            type="radio" value="option1">
-                                    <label class="form-check-label" for="exampleRadios1">
+                                    <label class="form-check-label" for="card_pay">
                                         Card Payment
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="exampleRadios2" name="exampleRadios" type="radio"
+                                    <input class="form-check-input" id="cash_pay" name="exampleRadios" type="radio"
                                            value="option2">
-                                    <label class="form-check-label" for="exampleRadios2">
+                                    <label class="form-check-label" for="cash_pay">
                                         Cash
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="exampleRadios3" name="exampleRadios" type="radio"
+                                    <input class="form-check-input" id="cheque_pay" name="exampleRadios" type="radio"
                                            value="option3">
-                                    <label class="form-check-label" for="exampleRadios3">
+                                    <label class="form-check-label" for="cheque_pay">
                                         cheque
                                     </label>
                                 </div>
@@ -928,7 +928,7 @@
                                 <div class="col-6 d-flex align-items-center">
                                 </div>
                                 <div class="col-6 text-end">
-                                    <a class="btn bg-gradient-dark mb-0 text-xxs" href="#">&nbsp;&nbsp;Place Order</a>
+                                    <a class="btn bg-gradient-dark mb-0 text-xxs" id="place_order_btn" href="#">&nbsp;&nbsp;Place Order</a>
                                 </div>
                             </div>
 
