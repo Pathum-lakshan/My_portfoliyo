@@ -25,7 +25,7 @@ $('#customer_btn_dashboard').click(function () {
 const customers = [];
 const products = [];
 const orders = [];
-const carts = [];
+let carts = [];
 $("#add_product_btn").click(function (event) {
     productSave($('#next_product_id').text(), $('#product_name').val(), $('#product_category').val(), $('#product_qty').val(), $('#product_price').val());
     clearProduct();
@@ -42,8 +42,69 @@ $("#add_customer_btn").click(function (event) {
     customerSave($('#next_customer_id').text(), $('#customer_name').val(), $('#customer_address').val(), $('#customer_contact').val(), $('#customer_id_number').val())
     clearCustomer();
 });
+
+function clearDetails() {
+    $('#product_selector').val('select product');
+    $('#customers_selector').val('select customer');
+    $('#order_qry').val('');
+    $('#available_quantity').val('');
+    $('#product_price_order').val('');
+    $('#customer_name_order').val('');
+}
+
+function loadOrderTable() {
+    $("#Order_table tr").remove();
+
+    for (var order of orders) {
+        var row = "<tr><td>" + order.customer.name + "</td><td>" + order.oid + "</td><td>" + order.totalQty + "</td><td>" + order.totalAmount + "</td></tr>";
+        $('#Order_table').append(row);
+    }
+}
+
 $("#place_order_btn").click(function (event) {
 
+    let payment="none";
+    if ($('#card_pay:checked').val()==="card"){
+        payment="card";
+    }
+    else if ($('#cash_pay:checked').val()==="cash"){
+        payment="cash";
+    }
+    else if ($('#cheque_pay:checked').val()==="cheque"){
+        payment="cheque";
+    }
+
+    var customer;
+
+    for (var y of customers) {
+        if ($('#customers_selector').val()===y.id){
+            customer=y;
+        }
+    }
+        let totalAmount =0.00;
+    let totalQty=0;
+    for (var cart of carts) {
+        totalAmount=parseFloat(totalAmount)+( parseFloat(cart.product.price)*parseFloat(cart.qty));
+        totalQty=parseInt(totalQty)+parseInt(cart.qty);
+    }
+
+        let oid = $('#order_id').text();
+    const order = {
+        oid:oid,
+        carts: carts,
+        customer: customer,
+        totalAmount:totalAmount,
+        payment:payment,
+        totalQty:totalQty
+
+    };
+    orders.push(order);
+    let last = orders[orders.length - 1].oid;
+    $('#order_id').text(last.substring(0, last.length - 1) + (parseInt(last.charAt(last.length - 1)) + 1));
+    carts=[];
+    loadDataToCartTable();
+    clearDetails();
+    loadOrderTable();
 });
 function clearCustomer() {
     $('#customer_name').val('');
@@ -137,7 +198,6 @@ function loadDataToCartTable() {
         var row = "<tr><td>" + cart.product.id + "</td><td>" + cart.product.price + "</td><td>" + cart.qty + "</td><td>" + parseFloat(cart.product.price)*parseFloat(cart.qty) + "</td></tr>";
         $('#cart_table').append(row);
         totalAmount=parseFloat(totalAmount)+( parseFloat(cart.product.price)*parseFloat(cart.qty));
-        console.log(totalAmount);
     }
     $('#total_amount').text("Total Amount Rs. "+totalAmount);
 
@@ -180,7 +240,7 @@ if (carts.length>0){
     loadDataToCartTable();
 }
 function clearAddCartDetails() {
-    $('#product_selector').val('');
+    $('#product_selector').val('select product');
     $('#order_qry').val('');
     $('#available_quantity').val('');
     $('#product_price_order').val('');
