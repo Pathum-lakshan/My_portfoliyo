@@ -439,39 +439,37 @@ function loadAllCustomers() {
     var selected = " <option selected>" + "select customer" + "</option>";
     $('#customers_selector').append(selected);
     for (var customer of customers) {
-        var row = " <option>" + customer.id + "  " + customer.name + "</option>";
+        var row = " <option>" + customer.id  + "</option>";
         $('#customers_selector').append(row);
-
     }
 }
-
 function loadAllProduct() {
     $('#product_selector').empty();
     var selected = " <option selected>" + "select product" + "</option>";
     $('#product_selector').append(selected);
     for (var product of products) {
-        var row = " <option>" + product.id + "  " + product.name + "</option>";
+        var row = " <option>" + product.id + "</option>";
         $('#product_selector').append(row);
-
     }
 }
+$('#customers_selector').on('change',function (){
+    for (var customer of customers) {
+        if ($('#customers_selector').val()===customer.id){
+            $('#customer_name_order:text').val(String(customer.name));
+            $("#customer_contact_contact:text").val(String(customer.contact));
+        }
+    }
+});
+$('#product_selector').on('change',function (){
+    for (var product of products) {
+        if ($('#product_selector').val()===product.id){
+            $('#product_price_order:text').val(String(product.price));
 
-$("#customers_selector").on('change',function (){
-    let customer = searchCustomer($('#customers_selector').val());
-    let address = customer.address;
-    $("#customer_address_order:text").val(String(address));
-   // $("#customer_contact_contact:text").val(""+customer.contact+"");
-    console.log(customer);
+        }
+    }
 });
 
-
-
-function searchCustomer(id) {
-    let customer;
-    customers.forEach(element => {
-        if (id==element.id){
-            customer=element;
-        }
-    });
-    return customer;
-}
+$("#add_card_btn").click(function (event) {
+    customerSave($('#next_customer_id').text(), $('#customer_name').val(), $('#customer_address').val(), $('#customer_contact').val(), $('#customer_id_number').val())
+    clearCustomer();
+});
