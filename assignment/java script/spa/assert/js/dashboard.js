@@ -105,6 +105,8 @@ $("#place_order_btn").click(function (event) {
     loadDataToCartTable();
     clearDetails();
     loadOrderTable();
+    $('#toast_success_body').text("Successfully Place Order");
+    new bootstrap.Toast($('#successToast')).show();
 });
 function clearCustomer() {
     $('#customer_name').val('');
@@ -238,6 +240,8 @@ if (carts.length>0){
 }
     productQtyMinus(product.id,qty);
     loadDataToCartTable();
+    $('#toast_success_body').text("Successfully add to cart");
+    new bootstrap.Toast($('#successToast')).show();
 }
 function clearAddCartDetails() {
     $('#product_selector').val('select product');
