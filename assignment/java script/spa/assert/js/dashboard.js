@@ -42,7 +42,6 @@ $("#add_customer_btn").click(function (event) {
     customerSave($('#next_customer_id').text(), $('#customer_name').val(), $('#customer_address').val(), $('#customer_contact').val(), $('#customer_id_number').val())
     clearCustomer();
 });
-
 function clearDetails() {
     $('#product_selector').val('select product');
     $('#customers_selector').val('select customer');
@@ -51,7 +50,6 @@ function clearDetails() {
     $('#product_price_order').val('');
     $('#customer_name_order').val('');
 }
-
 function loadOrderTable() {
     $("#Order_table tr").remove();
 
@@ -60,7 +58,6 @@ function loadOrderTable() {
         $('#Order_table').append(row);
     }
 }
-
 $("#place_order_btn").click(function (event) {
 
     let payment="none";
