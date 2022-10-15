@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+    <link rel="stylesheet" href="assests/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #A8ACF6;
+        }
+        .container{
+            top: 50px;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            position: absolute;
+        }
+        .centered{
+            margin: 0 auto;
+            text-align:center;
+        }
+        .calc-card{
+            top:20px;
+            position:relative;
+            width: 435px;
+            padding: 15px;
+            padding-top:20px;
+            margin: 0 auto;
+            background: gray;
+            border-radius:20px;
+        }
+
+        .screen{
+            width:58%;
+            height:54px;
+            margin:10px;
+            line-height:54px;
+            margin: 0 auto;
+            left: 44px;
+            position: relative;
+            padding-right:9px;
+            background: #799387;
+            text-align:right;
+            text-shadow:none;
+            border:1px solid #6B6B6B;
+            font-size:26px;
+        }
+        .buttons{
+            width:340px;
+            margin:10px;
+            margin:4px auto;
+            margin-top:20px;
+        }
+        button{
+            width:65px;
+            height:45px;
+            padding:0;
+            outline:none;
+            margin:0px 0px 12px 5px;
+            border:1px solid #333;
+            border-radius:6px;
+            color:white;
+            background:Black;
+
+        }
+        #clear{
+            float:left;
+            position: relative;
+            left: 28px;
+            top: 6px;
+            background-color:#d02200;
+            border:1px solid #d02200;
+        }
+        #equal{
+            background-color:blue;
+        }
+        #minus, #plus, #divide, #multiply{
+            background-color: #906262;
+        }
+    </style>
+</head>
+<body>
+<div class='container'>
+    <div class="centered">
+        <h1>Calculator</h1>
+        <div class="calc-card">
+            <button id="clear" value="">C</button>
+            <div id="screen" class="screen">0</div>
+            <div class="buttons">
+
+                <button class="digit" value="7">7</button>
+                <button class="digit" value="8">8</button>
+                <button class="digit" value="9">9</button>
+                <button class="operator" id="divide" value="/">&#247;</button>
+                <button class="digit" value="4">4</button>
+                <button class="digit" value="5">5</button>
+                <button class="digit" value="6">6</button>
+                <button class="operator" id="minus" value="-">-</button>
+                <button class="digit" value="1">1</button>
+                <button class="digit" value="2">2</button>
+                <button class="digit" value="3">3</button>
+                <button class="operator " id="plus" value="+">+</button>
+                <button class="digit" value="0">0</button>
+                <button class="digit" value=".">.</button>
+                <button id="equal">=</button>
+                <button class="operator" id="multiply" value="*">x</button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="assests/js/jquery-3.6.1.min.js"></script>
+<script src="assests/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+
+        function calculator(){
+            var sum = "";
+            var len;
+
+            var operators = ["+", "-", "*", "/"];
+            var inputVal = document.getElementById("screen");
+            $(".buttons .digit").on('click', function() {
+                var num = $(this).attr('value');
+                sum += num;
+
+                $("#screen").html(sum);
+                len = inputVal.innerHTML.split("");
+                console.log(len);
+
+            });
+            $(".buttons .operator").on('click', function(e) {
+                e.preventDefault();
+                var ops = $(this).attr('value');
+                sum += ops;
+                $("#screen").html(sum);
+                len = inputVal.innerHTML;
+                if(/(?=(\D{2}))/g.test(sum)) {
+                    sum = len.substring(0, len.length - 1);
+                    $("#screen").html(sum);
+                }
+
+            });
+
+
+            $("#equal").on('click', function() {
+                var total =  eval(sum);
+
+                $("#screen").html(total % 1 != 0 ? total.toFixed(2) : total);
+            });
+
+            $("#clear").on('click', function() {
+                sum = "";
+                arr = [];
+                $("#screen").html(0);
+            });
+
+        };
+        calculator();
+    });
+
+</script>
+</body>
+</html>
